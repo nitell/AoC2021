@@ -8,9 +8,9 @@ namespace AoC2021.Day01
         public int Solve()
         {
             var input = File.ReadAllLines(@"Day01/input.txt").Select(s => int.Parse(s)).ToArray();
-            var windows = Enumerable.Range(0, input.Count() - 2).Select(i => input[i] + input[i + 1] + input[i + 2])
-                .ToArray();
-            return Enumerable.Range(0, windows.Count() - 1).Count(i => windows[i + 1] > windows[i]);
+            var windows = input.Zip(input.Skip(1)).Zip(input.Skip(2))
+                .Select(o => o.First.First + o.First.Second + o.Second).ToArray(); 
+            return windows.Zip(windows.Skip(1), (a, b) => b > a ? 1 : 0).Sum();
         }
     }
 }

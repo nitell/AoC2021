@@ -8,7 +8,7 @@ namespace AoC2021.Day01
         public int Solve()
         {
             var input = File.ReadAllLines(@"Day01/input.txt").Select(s => int.Parse(s)).ToArray();
-            return Enumerable.Range(0, input.Length - 1).Count(i => input[i + 1] > input[i]);
+            return input.Zip(input.Skip(1), (a, b) => b > a ? 1 : 0).Sum();
         }
     }
 }

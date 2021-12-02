@@ -6,8 +6,8 @@ namespace AoC2021
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(new Day02.Part1().Solve());
-            Console.WriteLine(new Day02.Part2().Solve());
+            Console.WriteLine(new Day01.Part1().Solve());
+            Console.WriteLine(new Day01.Part2().Solve());
         }
     }
 }
